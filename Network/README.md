@@ -11,6 +11,10 @@
 [뒤로](https://github.com/JaeYeopHan/for_beginner)
 
 </br>
+## Nagle Algorithmㄹ
+
+**참고 링크 https://lbreeze.tistory.com/15**
+
 
 ## HTTP의 GET과 POST 비교
 
