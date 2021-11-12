@@ -11,7 +11,7 @@
 [뒤로](https://github.com/JaeYeopHan/for_beginner)
 
 </br>
-## Nagle Algorithmㄹ
+## Nagle Algorithm
 
 **참고 링크 https://lbreeze.tistory.com/15**
 
