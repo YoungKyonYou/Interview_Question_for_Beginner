@@ -396,6 +396,7 @@ while(m!=n){
 }
 ```
 - 답: maximum time: O(n)  minimum time: O(1)
+- m=10, n=1일 때 생각하면 O(n)이 나올 수 있음
 
 
 
