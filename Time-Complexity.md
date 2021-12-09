@@ -26,9 +26,11 @@ int div(int a, int b){
 }
 ```
 
-a: 1     2     3     4     5     ---     n
-b: 1b    2b    3b    4b    5b    ---     kb
-
+- a: 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;    5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     ---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- b: 1b&nbsp;&nbsp;&nbsp;&nbsp;    2b&nbsp;&nbsp;&nbsp;&nbsp;    3b&nbsp;&nbsp;&nbsp;&nbsp;    4b&nbsp;&nbsp;&nbsp;&nbsp;    5b&nbsp;&nbsp;&nbsp;&nbsp;    ---&nbsp;&nbsp;&nbsp;&nbsp;     kb
+- kb>a
+- k>a/b
+- 답: O(a/b)
 
 ###### ex2
 - g가 n의 제곱근일때까지 함수를 돌린다
@@ -44,6 +46,8 @@ int sqrt(int n){
     return -1;
 }
 ```
+- 답:O(sqrt(n))
+
 
 
 ##### ex3
@@ -98,7 +102,10 @@ int sumDigits(int n){
     }
 }
 ```
-
+- i:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k
+- n:&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;n/10
+- 로그 씌우면 logn-1<=k
+- 
 - 정답 : O(logN)
 - 10씩 계속 뚝뚝 떨어진다 이진 검색 트리에서 2로 계속 나눠지는 것이랑 같다.
 
@@ -149,7 +156,10 @@ for(i=0;i<N;i++){
     }
 }
 ```
-
+- i:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N
+- j:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1+2+3+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1+2+3+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1+2+3+...+N
+- k:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k
+- n(n+1)/2=k
 - 답: O(n^2)
 
 
@@ -175,7 +185,11 @@ for(int x=1;x<=n;x*=2){
     print x;
 }
 ```
+- k:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k
+- x:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2^x
 
+- 2^k>n
+- k>logn
 - 답: O(logN)
 
 
@@ -189,6 +203,15 @@ while(i>0){
 }
 ```
 
+- N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N
+- K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;K
+- i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/2^1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2/2^2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3/2^3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N/2^K
+- 결국 N/2^K<=0이된다
+- 로그 취하기 logN-Klog2<=0
+- (옆으로 넘기기) logN<=Klog2
+- 로그의 법칙 logN/log2<=K
+- logN(밑이 2)<=K
+- logi는 상수니까 사라짐 결국 logn<=0
 - 답: O(logN)(밑이 2)
 
 
@@ -200,6 +223,11 @@ for(i=1;i<n;i+=2){
 }
 ```
 
+- K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;K
+- i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(k-1)+2
+- i>=n
+- (k-1)+2>=n
+- k>=n
 - 답: n/2 지만 polynomial하게 보면 O(N)이다.
 
 
@@ -207,7 +235,7 @@ for(i=1;i<n;i+=2){
 
 ```java
 p=0;
-for(int i=1;i<=n;i++){
+for(int i=1;p<=n;i++){
     p=p+i;
 }
 ```
@@ -229,7 +257,12 @@ for(i=1;i<n;i=i*2){
 }
 ```
 
+- K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;K
+- i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2^k
+- 2^k>=n
+- k>=logn
 - 답: logN
+
 
 ##### ex 16
 
@@ -248,6 +281,10 @@ for(i=0;i*i<n;i++){
     stmt;
 }
 ```
+- K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;K
+- i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1\*1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2\*2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3\*3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4\*4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;K\*K
+- K^2>=N
+- -K>=sqrt(N)
 
 - i^2=>n
 - i>=sqrt(n);
@@ -339,9 +376,10 @@ while(k<n){
 
 ##### ex 23
 ```java
-for(k=1,i=1;k<n;i++)}
-stmt;
-k=k+i;
+for(k=1,i=1;k<n;i++){
+    stmt;
+    k=k+i;
+}
 ```
 - 답:O(sqrt(n))
 - 위의 문제와 똑같다.
