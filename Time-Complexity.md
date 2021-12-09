@@ -140,7 +140,7 @@ for(k=0;k<N;k++){
 ```java 
 int a=0;
 for(i=0;i<N;i++){
-    for(j-N;j>i;j--){
+    for(j=N;j>i;j--){
         a=a+i+j;
     }
 }
